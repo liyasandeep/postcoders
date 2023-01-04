@@ -14,11 +14,20 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const [areaCacheMap, setAreaCacheMap] = useState(new Map());
+
+  const cacheArea = async () => {
+    if (!areaCacheMap.has(postcode)) {
+      await areaCacheMap.set(postcode, getAreaData(postcode));
+    }
+    // console.log(areaCacheMap);
+    return areaCacheMap.get(postcode);
+  };
   const load = async () => {
     try {
       setIsLoading(true);
       setInvalidInput(false);
-      const areaData = await getAreaData(postcode);
+      const areaData = await cacheArea();
 
       setAreas(areaData);
       setIsLoading(false);
