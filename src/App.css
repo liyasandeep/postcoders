@@ -10,3 +10,18 @@
   width: 90vw;
   border: solid grey 2px;
 }
+
+.postcodeText {
+  height: 20px;
+  width: 385px;
+  border: 1px;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 15px;
+}
+.searchBtn {
+  height: 25px;
+  width: 70px;
+  display: block;
+  margin: auto;
+}
